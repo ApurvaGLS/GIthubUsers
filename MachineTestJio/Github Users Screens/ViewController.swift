@@ -27,8 +27,14 @@ class ViewController: UIViewController,UISearchBarDelegate{
         setUpTable()
         setUpSearchBar()
         if(Reachability.isConnectedToNetwork()){
-            print("YES")
+//            print("YES")
             loadData()
+        }else{
+//            print("NO")
+        }
+        
+        if UIApplication.isFirstLaunch() {
+            print("YES")
         }else{
             print("NO")
         }
@@ -144,6 +150,17 @@ extension ViewController : UISearchResultsUpdating{
             }
           }
       myTableView.reloadData()
+    }
+}
+
+extension UIApplication {
+    class func isFirstLaunch() -> Bool {
+        if !UserDefaults.standard.bool(forKey: "HasAtLeastLaunchedOnce") {
+            UserDefaults.standard.set(true, forKey: "HasAtLeastLaunchedOnce")
+            UserDefaults.standard.synchronize()
+            return true
+        }
+        return false
     }
 }
 

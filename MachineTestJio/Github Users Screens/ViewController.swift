@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite3
 
 class ViewController: UIViewController,UISearchBarDelegate{
  
@@ -27,16 +28,16 @@ class ViewController: UIViewController,UISearchBarDelegate{
         setUpTable()
         setUpSearchBar()
         if(Reachability.isConnectedToNetwork()){
-//            print("YES")
+            print("Internet Connection Available")
             loadData()
         }else{
-//            print("NO")
+            print("No Internet Connection Available")
         }
         
         if UIApplication.isFirstLaunch() {
-            print("YES")
+            print("First Time ")
         }else{
-            print("NO")
+            print("Not first time")
         }
     }
     
@@ -153,14 +154,4 @@ extension ViewController : UISearchResultsUpdating{
     }
 }
 
-extension UIApplication {
-    class func isFirstLaunch() -> Bool {
-        if !UserDefaults.standard.bool(forKey: "HasAtLeastLaunchedOnce") {
-            UserDefaults.standard.set(true, forKey: "HasAtLeastLaunchedOnce")
-            UserDefaults.standard.synchronize()
-            return true
-        }
-        return false
-    }
-}
 

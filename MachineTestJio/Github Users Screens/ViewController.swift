@@ -18,6 +18,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
     var myTableView: UITableView!
     var db : OpaquePointer?
     var fileUrl : URL?
+    var needInsert : String?
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
         setUpNavigationBar()
         setUpTable()
         setUpSearchBar()
+        needInsert = "NO"
         
         fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         .appendingPathComponent("GithubDatabase.sqlite")
@@ -37,6 +39,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
             openDatabase()
             createTable()
             if(Reachability.isConnectedToNetwork()){
+                needInsert = "YES"
                 loadData()
             }else{
                 let alert = UIAlertController.init(title: "Alert", message: "Make sure you have a worrking internet connection", preferredStyle: .alert)
@@ -48,6 +51,8 @@ class ViewController: UIViewController,UISearchBarDelegate{
                 loadData()
             }else{
                 print("No Internet Connection Available")
+                openDatabase()
+                readValues()
             }
         }
     }
@@ -104,6 +109,10 @@ func parseJsonResponse(dict:[String : Any]){
         githubuserArray!.append(bean as! GithubUserBean)
     }
 
+    if needInsert == "YES"{
+      self.insertIntoTable()
+    }
+    
     DispatchQueue.main.async {
         self.myTableView.reloadData()
     }
@@ -140,7 +149,7 @@ func insertIntoTable(){
             print("OK")
         }
     }
-//    readValues()
+    readValues()
 }
     
 func readValues(){

@@ -198,7 +198,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
             let login = filteredgithubuserArray![indexPath.row].login
             cell.textLabel!.text = login
             let url = URL.init(string: filteredgithubuserArray![indexPath.row].avatar_url!)
-            cell.imageView?.sd_setImage(with: url, completed: nil)
+            cell.imageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "ProfilePhoto"), options: [], context: nil)
         }else{
             let login = githubuserArray![indexPath.row].login
             cell.textLabel!.text = login

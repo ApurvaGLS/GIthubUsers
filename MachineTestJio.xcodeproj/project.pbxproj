@@ -79,6 +79,14 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		53602FF824EE9B04002A7628 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				536F43FF24EE2D7D00784CF0 /* icons8-github-90.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		53FCD0C524EAA41600FD7660 = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +108,12 @@
 		53FCD0D024EAA41600FD7660 /* MachineTestJio */ = {
 			isa = PBXGroup;
 			children = (
-				536F43FF24EE2D7D00784CF0 /* icons8-github-90.png */,
 				53FCD0D124EAA41600FD7660 /* AppDelegate.swift */,
 				53FCD0D724EAA41600FD7660 /* Main.storyboard */,
 				53FCD0DA24EAA41800FD7660 /* Assets.xcassets */,
 				53FCD0DC24EAA41800FD7660 /* LaunchScreen.storyboard */,
 				53FCD0DF24EAA41800FD7660 /* Info.plist */,
+				53602FF824EE9B04002A7628 /* Images */,
 				533FB2BE24EC0F4E00EA5ED1 /* Reachability */,
 				533FB2BA24EBA46300EA5ED1 /* Api Handler */,
 				533FB2BB24EBA47F00EA5ED1 /* Github Users Screens */,

@@ -112,7 +112,7 @@ extension UserDetailsViewController : UITableViewDelegate, UITableViewDataSource
         cell.textLabel?.textColor = .darkGray
         cell.selectionStyle = .none
         let url = URL.init(string: userFollowersArray![indexPath.row].avatar_url!)
-        cell.imageView?.sd_setImage(with: url, completed: nil)
+        cell.imageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "ProfilePhoto"), options: [], context: nil)
         return cell
     }
 }

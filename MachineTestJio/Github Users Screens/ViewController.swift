@@ -9,7 +9,7 @@
 import UIKit
 import SQLite3
 
-class ViewController: UIViewController,UISearchBarDelegate{
+class ViewController: UIViewController{
  
     var githubuserArray : [GithubUserBean]?
     var filteredgithubuserArray: [GithubUserBean]?
@@ -201,8 +201,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
             let login = githubuserArray![indexPath.row].login
             cell.textLabel!.text = login
-            let url = URL.init(string: githubuserArray![indexPath.row].avatar_url!)
-            cell.imageView?.sd_setImage(with: url, completed: nil)
+            let url = URL(string: githubuserArray![indexPath.row].avatar_url!)
+            cell.imageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "ProfilePhoto"), options: [], context: nil)
         }
         cell.textLabel?.textColor = .darkGray
         cell.selectionStyle = .none
@@ -226,7 +226,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
 }
 
 //MARK:- Search Controller
-extension ViewController : UISearchResultsUpdating{
+extension ViewController : UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         filteredgithubuserArray?.removeAll()
           let searchStr = searchController.searchBar.text?.lowercased()

@@ -33,6 +33,7 @@ class UserDetailsViewController: UIViewController {
         followerArr = NSArray()
         setUpNavigationBar()
         setUpViews()
+        
         if(Reachability.isConnectedToNetwork()){
             loadData()
         }else{
@@ -41,6 +42,7 @@ class UserDetailsViewController: UIViewController {
             alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        
     }
     
 //MARK: - SetUp
@@ -74,7 +76,7 @@ class UserDetailsViewController: UIViewController {
         containerView?.addSubview(nameLabel!)
         }
         
-        followersTableView = UITableView(frame: CGRect(x: 0, y: 195, width: screenSize.width, height: self.view.frame.height))
+        followersTableView = UITableView(frame: CGRect(x: 0, y: 195, width: screenSize.width, height: self.view.frame.height-200))
         followersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         followersTableView.dataSource = self
         followersTableView.delegate = self
@@ -122,5 +124,23 @@ extension UserDetailsViewController : UITableViewDelegate, UITableViewDataSource
         let url = URL.init(string: userFollowersArray![indexPath.row].avatar_url!)
         cell.imageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "ProfilePhoto"), options: [], context: nil)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.lightGray.withAlphaComponent(0.3)
+        let header = view as? UITableViewHeaderFooterView
+        header?.textLabel?.textColor = .black
+        header?.textLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        let headerFrame = header?.frame
+        header?.textLabel?.frame = headerFrame ?? CGRect.zero
+        header?.textLabel?.textAlignment = .center
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Followers"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
     }
 }

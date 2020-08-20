@@ -21,6 +21,7 @@ class UserDetailsViewController: UIViewController {
     var userFollowersArray : [GithubUserBean]?
     var followerArr : NSArray?
 
+//MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,10 +36,11 @@ class UserDetailsViewController: UIViewController {
         loadData()
     }
     
+//MARK: - SetUp
     func setUpNavigationBar(){
-        self.title = "Details"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+        self.title = "User Details"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0, weight: .semibold)]
+        navigationController?.navigationBar.tintColor = .black
     }
     
     func setUpTable(){
@@ -71,6 +73,7 @@ class UserDetailsViewController: UIViewController {
         self.view.addSubview(followersTableView)
     }
     
+//MARK:- Api Call
     func loadData() {
         get(url: followersUrl) { (success, response) in
             if success {
@@ -96,6 +99,7 @@ class UserDetailsViewController: UIViewController {
     }
 }
 
+//MARK:- TableView Methods
 extension UserDetailsViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userFollowersArray!.count

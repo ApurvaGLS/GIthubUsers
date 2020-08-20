@@ -32,8 +32,15 @@ class UserDetailsViewController: UIViewController {
         userFollowersArray = [GithubUserBean]()
         followerArr = NSArray()
         setUpNavigationBar()
-        setUpTable()
-        loadData()
+        setUpViews()
+        if(Reachability.isConnectedToNetwork()){
+            loadData()
+        }else{
+            followersTableView.isHidden = true
+            let alert = UIAlertController.init(title: "No Internet", message: "Unable to load followers list", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 //MARK: - SetUp
@@ -43,7 +50,8 @@ class UserDetailsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
     }
     
-    func setUpTable(){
+    func setUpViews(){
+        self.view.backgroundColor = .white
         let screenSize: CGRect = UIScreen.main.bounds
         if(containerView == nil) {
           containerView = UIView(frame: CGRect(x: 0, y: 80, width: screenSize.width, height: 115))
@@ -66,7 +74,7 @@ class UserDetailsViewController: UIViewController {
         containerView?.addSubview(nameLabel!)
         }
         
-        followersTableView = UITableView(frame: CGRect(x: 0, y: 196, width: screenSize.width, height: self.view.frame.height))
+        followersTableView = UITableView(frame: CGRect(x: 0, y: 195, width: screenSize.width, height: self.view.frame.height))
         followersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         followersTableView.dataSource = self
         followersTableView.delegate = self

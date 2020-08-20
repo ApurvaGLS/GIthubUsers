@@ -38,6 +38,7 @@ class ViewController: UIViewController{
 
 //MARK:- SetUp
    func setupUI(){
+    self.view.backgroundColor = .white
      setTitle("Github Users", andImage: UIImage(named: "Github")!)
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
    }

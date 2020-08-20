@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		533FB2C024EC0F6400EA5ED1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FB2BF24EC0F6400EA5ED1 /* Reachability.swift */; };
-		536F43FE24EE1FE300784CF0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536F43FD24EE1FE300784CF0 /* CustomCell.swift */; };
 		536F440024EE2D7D00784CF0 /* icons8-github-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 536F43FF24EE2D7D00784CF0 /* icons8-github-90.png */; };
 		53FCD0D224EAA41600FD7660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCD0D124EAA41600FD7660 /* AppDelegate.swift */; };
 		53FCD0D624EAA41600FD7660 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCD0D524EAA41600FD7660 /* ViewController.swift */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		533FB2BF24EC0F6400EA5ED1 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		536F43FD24EE1FE300784CF0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		536F43FF24EE2D7D00784CF0 /* icons8-github-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-github-90.png"; sourceTree = "<group>"; };
 		53D452E40346D04D0B9FBF3E /* Pods-MachineTestJio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MachineTestJio.release.xcconfig"; path = "Target Support Files/Pods-MachineTestJio/Pods-MachineTestJio.release.xcconfig"; sourceTree = "<group>"; };
 		53FCD0CE24EAA41600FD7660 /* MachineTestJio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineTestJio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +64,6 @@
 				53FCD0E524EAA9C400FD7660 /* GithubUserBean */,
 				53FCD0D524EAA41600FD7660 /* ViewController.swift */,
 				53FCD0EA24EABF8400FD7660 /* UserDetailsViewController.swift */,
-				536F43FD24EE1FE300784CF0 /* CustomCell.swift */,
 			);
 			path = "Github Users Screens";
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 				533FB2C024EC0F6400EA5ED1 /* Reachability.swift in Sources */,
 				53FCD0EB24EABF8400FD7660 /* UserDetailsViewController.swift in Sources */,
 				53FCD0E924EAAC5700FD7660 /* ApiHandlerClass.swift in Sources */,
-				536F43FE24EE1FE300784CF0 /* CustomCell.swift in Sources */,
 				53FCD0E724EAA9FA00FD7660 /* GithubUserBean.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
